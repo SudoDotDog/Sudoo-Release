@@ -1,0 +1,38 @@
+{
+  "name": "@sudoo/release",
+  "version": "1.0.0",
+  "description": ":8ball: Release helper for TS",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SudoDotDog/Sudoo-Release.git"
+  },
+  "keywords": [
+    "Release"
+  ],
+  "author": "WMXPY",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SudoDotDog/Sudoo-Release/issues"
+  },
+  "homepage": "https://github.com/SudoDotDog/Sudoo-Release#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@sudoo/io": "^1.8.0",
+    "@sudoo/triforce": "^2.7.9"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "instrument": true,
+    "reporter": [
+      "json",
+      "text-summary"
+    ],
+    "report-dir": "coverage",
+    "sourceMap": true
+  }
+}
