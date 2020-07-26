@@ -18,6 +18,9 @@ const parent: any = JSON.parse(Fs.readFileSync(packagePath, 'utf8'));
 const appPackage: any = {
     name: parent.name,
     main: "index.js",
+    bin: {
+        version: "bin",
+    },
     version: parent.version,
     description: parent.description,
     repository: parent.repository,
@@ -26,6 +29,11 @@ const appPackage: any = {
     license: parent.license,
     bugs: parent.bugs,
     homepage: parent.homepage,
-    peerDependencies: parent.peerDependencies,
+    dependencies: parent.dependencies,
 };
 Fs.writeFileSync(Path.join(appPath, 'package.json'), JSON.stringify(appPackage, null, 2), 'utf8');
+Fs.writeFileSync(Path.join(appPath, 'bin'), [
+    `#!/usr/bin/env node`, '',
+    `const release = require('./cli.js').execute;`,
+    `release(process.argv);`, '',
+].join('\n'));
